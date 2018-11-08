@@ -1,0 +1,45 @@
+body{
+    overflow-x: hidden ;
+    background-color: #fefefe!important;
+    box-sizing: border-box;
+}
+
+.text-green{
+    color: rgb(3,164,156);
+}
+
+.bg-green{
+    background: rgb(3,164,156);
+}
+
+.bg-gray{
+    background: rgb(170,170,170);
+}
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.roboto{
+    font-family: 'Roboto Slab', serif;
+}
+
+.bodoni{
+    font-family:'Bodoni MT', serif;
+}
+
+.fw-700{
+    font-weight: 700;
+}
+
+.fw-200{
+    font-weight: 200;
+}
+
+.letter-space1{
+    letter-spacing: 0.2em;
+}
+
+.letter-space2{
+    letter-spacing: 0.4em;
+}

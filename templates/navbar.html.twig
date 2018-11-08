@@ -1,0 +1,57 @@
+{% block javascripts %}
+    <script src="{{ asset('js/navbar.js') }}"></script>
+{% endblock %}
+<div id="navigationbar">
+    <div class="container col-sm-12 h-100">
+        <div class="row navbar-row h-100">
+            <div class="col-6 d-block d-sm-none"></div>
+            <div class="col-6 col-sm-4 d-inline-flex montserrat letter-space2 menu" onclick="openNav()">
+                <div class="d-flex" style="margin: auto">
+                    <span class="text-green float-center" style="line-height: 45px">ME</span>
+                    <div class="navball d-inline-flex bg-green">
+                        <span class="text-white" style="line-height: 40px; margin: auto 0 auto 6px">NU</span>
+                    </div>
+                </div>
+                </div>
+            <div class="col-sm-4 hidden d-none d-sm-flex flex-column logo-container">
+                <img src="{{ asset('img/logo.png') }}" alt="" class="logo-1" style="margin-bottom: 5px">
+                <img src="{{ asset('img/logo-name.png') }}" alt="" class="logo-2">
+            </div>
+            <div class="col-sm-4 d-none d-sm-inline-flex menu">
+                <i class="fas fa-users fa-2x text-green m-auto"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-navbar" style="z-index: 5">
+    <div class="row bg-white h-100">
+        <div class="col-xl-4 row" >
+            <div class="col-5 position-relative" style="font-size: 14px">
+                <div class="close-nav-button position-absolute d-flex montserrat letter-space2" onclick="closeNav()">
+                    <span class="text-green float-center" style="line-height: 55px">FEC</span>
+                    <div class="navball2 d-inline-flex bg-green">
+                        <span class="text-white" style="line-height: 50px; margin: auto 0 auto 6px">HAR</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 h-100 position-relative p-0" id="nav-col-1">
+                <span class="nav-span position-absolute text-white letter-space1 w-100">INÍCIO</span>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="col-xl-4 row">
+            <div class="col-3"></div>
+            <div class="col-6 h-100 position-relative p-0" id="nav-col-2">
+                <span class="nav-span position-absolute text-white letter-space1 w-100">COMPRAR</span>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="col-xl-4 row">
+            <div class="col-1"></div>
+            <div class="col-6 h-100 position-relative p-0" id="nav-col-3">
+                <span class="nav-span position-absolute text-white letter-space1 w-100">ALUGAR</span>
+            </div>
+            <div class="col-5 position-relative"></div>
+        </div>
+    </div>
+</div>

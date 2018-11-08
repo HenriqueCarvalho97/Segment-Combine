@@ -1,0 +1,56 @@
+{% block city_widget %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="cityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title montserrat" id="exampleModalLabel" style="color: #565656">Escolha a cidade:</h5>
+                </div>
+                <div class="modal-body">
+                    {% for city in cities %}
+                        <a href="{{ path('rent',{'slug':city.name}) }}" class="row city-rows" style="height: 50px; margin: 0 20px; border-bottom: 1px solid #ddd; padding-bottom:15px; padding-top: 15px">
+                            <div class="col-8">
+                                <span class="montserrat text-uppercase letter-space1 text-green" style="font-size: 12px">{{ city.name }}</span>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img class="position-absolute" src="{{ asset('img/flags/' ~ city.country ~ '.png') }}"
+                                     alt="{{ city.country }}" style="right: 20px; height: 20px">
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-green text-white montserrat" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cityModalRent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title montserrat" id="exampleModalLabel" style="color: #565656">Escolha a cidade:</h5>
+                </div>
+                <div class="modal-body">
+                    {% for city in cities %}
+                        <a href="{{ path('rent',{'slug':city.name}) }}" class="row city-rows" style="height: 50px; margin: 0 20px; border-bottom: 1px solid #ddd; padding-bottom:15px; padding-top: 15px">
+                            <div class="col-8">
+                                <span class="montserrat text-uppercase letter-space1 text-green" style="font-size: 12px;">{{ city.name }}</span>
+                            </div>
+                            <div class="col-4 position-relative">
+                                <img class="position-absolute" src="{{ asset('img/flags/' ~ city.country ~ '.png') }}"
+                                     alt="{{ city.country }}" style="right: 20px; height: 20px">
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-green text-white montserrat" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

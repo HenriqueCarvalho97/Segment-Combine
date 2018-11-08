@@ -1,0 +1,11 @@
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+
+rent:
+    path: /apartamentos/cidades/{slug}
+    controller: App\Controller\CityController::rent
+
+buy:
+    path: /imoveis/cidades/{slug}
+    controller: App\Controller\CityController::buy

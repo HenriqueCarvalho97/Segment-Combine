@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\House;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\City;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CityController extends AbstractController
 {
@@ -14,11 +16,9 @@ class CityController extends AbstractController
      */
     public function rent($slug)
     {
-        $repo = $this->getDoctrine()->getRepository(City::class);
+        $houses = $this->getHouses(1, $slug);
 
-        $city = $repo->findOneBy(array('name' => $slug));
-
-        return new Response('Im gonna show ' . $city->getName());
+        return $this->render('search/index.html.twig', array('houses' => $houses, "city" => $slug));
     }
 
     /**
@@ -37,5 +37,13 @@ class CityController extends AbstractController
         $repo = $this->getDoctrine()->getRepository(City::class);
         $cities = $repo->findAll();
         return $cities;
+    }
+
+    public function getHouses($rent, $city){
+        $cityRepo = $this->getDoctrine()->getRepository(City::class);
+        $houseRepo = $this->getDoctrine()->getRepository(House::class);
+        $city = $cityRepo->findOneBy(array('name' => $city));
+        $houses = $houseRepo->findBy(array('city' => $city->getId(), 'rent' => $rent));
+        return $houses;
     }
 }

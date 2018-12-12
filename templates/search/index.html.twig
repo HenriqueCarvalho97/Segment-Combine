@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Segment Combine{% endblock %}
+
+{% block body %}
+    {% for house in houses%}
+        <p>{{ house.name }}</p>
+    {% endfor %}
+{% endblock %}

@@ -18,11 +18,13 @@
         {% endblock %}
     </head>
     <body>
-            {% block navbar %}
-                {{ include('navbar.html.twig') }}
-            {% endblock %}
-        {% block body %}
+        {% block navbar %}
+            {{ include('navbar.html.twig') }}
         {% endblock %}
+        <div style="margin-top: 120px;">
+            {% block body %}
+            {% endblock %}
+        </div>
 
     </body>
     {% block javascripts %}

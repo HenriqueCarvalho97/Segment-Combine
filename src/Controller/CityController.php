@@ -12,13 +12,29 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class CityController extends AbstractController
 {
     /**
-     * @Route("apartamentos/cidades/{$slug}", name="rent")
+     * @Route("{$type}/cidades/{$slug}", name="house")
      */
-    public function rent($slug)
+    public function house($type, $slug)
     {
-        $houses = $this->getHouses(1, $slug);
+        switch ($type){
+            case "apartamentos":
+                $rent = 1;
+                $typeNameSearch = "Imóveis";
+                $typeSearch = "imoveis";
+                break;
+            case "imoveis":
+                $rent = 0;
+                $typeNameSearch = "Apartamentos";
+                $typeSearch = "apartamentos";
+                break;
+            default:
+                $rent = 1;
+        }
+        $houses = $this->getHouses($rent, $slug);
 
-        return $this->render('search/index.html.twig', array('houses' => $houses, "city" => $slug));
+        return $this->render('search/index.html.twig', array('houses' => $houses, "city" => $slug,
+            "typeNameSearch" => $typeNameSearch, "typeSearch" => $typeSearch, "cities" => $this->getCities(),
+            "type" => $type));
     }
 
     /**

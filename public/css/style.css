@@ -8,6 +8,10 @@ body{
     color: rgb(3,164,156);
 }
 
+.text-gray{
+    color: #666;
+}
+
 .bg-green{
     background: rgb(3,164,156);
 }
@@ -20,12 +24,12 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
-.roboto{
-    font-family: 'Roboto Slab', serif;
+.bodoni{
+    font-family: Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;
 }
 
-.bodoni{
-    font-family:'Bodoni MT', serif;
+.roboto{
+    font-family: 'Roboto Slab', serif;
 }
 
 .fw-700{

@@ -1,0 +1,66 @@
+#city_name{
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 60px;
+    padding: 20vh 0 30vh 0;
+}
+
+.house-name{
+    font-size: 50px;
+}
+
+.house-explore{
+    border: 1px solid rgb(3,164,156);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5pc;
+    margin: 0;
+}
+
+.search-description{
+    justify-content: flex-end;
+}
+
+.container-search::after{
+    content: "";
+    width: 30%;
+    margin: auto;
+    height: 1px;
+    background: #eee;
+}
+
+.side-info{
+    position: fixed;
+    height: 10vw;
+    width: 70vh;
+    top: 40vh;
+    left: -10vw;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.side-info a{
+    flex: 1;
+    text-align: center;
+    line-height: 10vw;
+    font-size: 12px;
+    color: #bbb!important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button{
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #bbb!important;
+    cursor: pointer;
+}
+
+button:focus{
+    border: none;
+    outline-color: transparent;
+}

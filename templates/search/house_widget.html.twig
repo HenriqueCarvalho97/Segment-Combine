@@ -1,0 +1,12 @@
+{% if myValue is divisible by(2)%}
+    <div class="row container-search" style="height: 500px; margin-bottom: 150px; flex-direction: row-reverse">
+{% else %}
+    <div class="row container-search" style="height: 500px; margin-bottom: 150px">
+{% endif %}
+    <div class="col-sm-5 px-5 d-flex flex-column position-relative search-description">
+        <p class="text-gray montserrat letter-space1">{{ house.netArea}} m<sup>2</sup></p>
+        <p class="house-name text-green bodoni letter-space1">{{ house.name | upper}}</p>
+        <p class="house-explore text-green montserrat letter-space2 ">{{ "Explorar" | upper }}</p>
+    </div>
+    <div class="col-sm-7 bg-gray"></div>
+</div>

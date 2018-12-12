@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Segment Combine{% endblock %}
+{% block additionalStylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}" />
+{% endblock %}
 
 {% block body %}
     <div class="homepage-container position-relative d-flex">
@@ -35,7 +38,7 @@
                 </div>
                 <div class="col-sm-12 d-flex mt-5">
                     <button type="button" class="btn btn-lg bg-green text-white montserrat m-auto letter-space1"
-                            style="font-size: 15px" data-toggle="modal" data-target="#cityModal">CIDADES</button>
+                            style="font-size: 15px" data-toggle="modal" data-target="#imoveis">CIDADES</button>
                 </div>
             </div>
             <div class=" col-md-6 col-sm-12" style="height: 300px">
@@ -48,7 +51,7 @@
                 </div>
                 <div class="col-sm-12 d-flex mt-5">
                     <button type="button" class="btn btn-lg bg-green text-white montserrat m-auto letter-space1"
-                            style="font-size: 15px" data-toggle="modal" data-target="#cityModalRent">CIDADES</button>
+                            style="font-size: 15px" data-toggle="modal" data-target="#apartamentos">CIDADES</button>
                 </div>
             </div>
         </div>

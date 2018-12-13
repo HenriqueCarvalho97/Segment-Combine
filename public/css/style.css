@@ -47,3 +47,17 @@ body{
 .letter-space2{
     letter-spacing: 0.4em;
 }
+
+
+.city-rows:hover{
+    background: #fbfbfb;
+    transition: 400ms;
+}
+
+.city-rows{
+    transition: 400ms;
+}
+
+.city-rows:hover{
+    text-decoration: none!important;
+}

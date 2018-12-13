@@ -8,5 +8,6 @@
         <p class="house-name text-green bodoni letter-space1">{{ house.name | upper}}</p>
         <p class="house-explore text-green montserrat letter-space2 ">{{ "Explorar" | upper }}</p>
     </div>
-    <div class="col-sm-7 bg-gray"></div>
+    <div class="col-sm-7 bg-gray" style="background: url({{ asset('img/houses/' ~ house.mainImage ~ '.jpg') }}); background-size: cover">
+    </div>
 </div>

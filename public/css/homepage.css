@@ -32,15 +32,6 @@
     -webkit-filter: grayscale(0%);
 }
 
-.city-rows:hover{
-    background: #fbfbfb;
-    transition: 400ms;
-}
-
-.city-rows{
-    transition: 400ms;
-}
-
 .container-seg1{
     height: 60vh;
 }

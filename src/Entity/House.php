@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -70,6 +72,21 @@ class House
      * @ORM\Column(type="boolean")
      */
     private $rent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\HouseImage", mappedBy="house", orphanRemoval=true)
+     */
+    private $images;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mainImage;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -207,4 +224,49 @@ class House
 
         return $this;
     }
+
+    /**
+     * @return Collection|HouseImage[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(HouseImage $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setHouse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(HouseImage $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getHouse() === $this) {
+                $image->setHouse(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    public function getMainImage(): ?string
+    {
+        return $this->mainImage;
+    }
+
+    public function setMainImage(string $mainImage): self
+    {
+        $this->mainImage = $mainImage;
+
+        return $this;
+    }
+
 }

@@ -17,12 +17,12 @@ class HouseController extends AbstractController
         switch ($type){
             case "apartamentos":
                 $rent = 1;
-                $typeNameSearch = "Imóveis";
+                $typeName= "Apartamentos";
                 $typeSearch = "imoveis";
                 break;
             case "imoveis":
                 $rent = 0;
-                $typeNameSearch = "Apartamentos";
+                $typeName = "Imóveis";
                 $typeSearch = "apartamentos";
                 break;
             default:
@@ -33,6 +33,7 @@ class HouseController extends AbstractController
             'controller_name' => 'HouseController',
             'house' => $house,
             'city' => $slug,
+            'type' => $typeName
         ]);
     }
 

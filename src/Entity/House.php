@@ -100,7 +100,7 @@ class House
         return $this->id;
     }
 
-    public function getCity(): ?string
+    public function getCity()
     {
         return $this->city;
     }

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class CityController extends AbstractController
 {
     /**
-     * @Route("{$type}/cidades/{$slug}", name="house")
+     * @Route("{$type}/cidades/{$slug}", name="houseSearch")
      */
     public function house($type, $slug)
     {

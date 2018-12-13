@@ -29,6 +29,11 @@ class House
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $remodelationYear;
@@ -86,6 +91,8 @@ class House
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->slug = preg_replace("/[\s_]/", "-", preg_replace("/[\s-]+/", " ",
+            preg_replace("/[^a-z0-9_\s-]/", "", strtolower($this->name))));
     }
 
     public function getId(): ?int
@@ -113,6 +120,18 @@ class House
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

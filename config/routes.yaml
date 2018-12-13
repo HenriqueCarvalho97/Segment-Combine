@@ -2,6 +2,10 @@ index:
     path: /
     controller: App\Controller\IndexController::index
 
-house:
+houseSearch:
     path: /{type}/cidades/{slug}
     controller: App\Controller\CityController::house
+
+house:
+    path: /{type}/cidades/{slug}/{housename}
+    controller: App\Controller\HouseController::index

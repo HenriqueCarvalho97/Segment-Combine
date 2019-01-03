@@ -7,10 +7,10 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; height: 200vh">
-        <span class="montserrat text-green letter-space1 pt-5 d-block go-back">
+    <div class="container" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+        <a class="montserrat text-green letter-space1 pt-5 d-block go-back" href="javascript:history.back()">
             {{ "Regressar" | upper }}
-        </span>
+        </a>
         <span class="p-5 montserrat text-gray letter-space2 d-block" style="font-size: 10px; text-align: center; width: 100%">{{ type|upper }}</span>
         <span class="bodoni text-green  d-block" style="font-size: 60px; text-align: center; width: 100%">{{ house.name}}</span>
         <div class="row mt-5" style="width: 50%; margin-left: 25%">
@@ -33,5 +33,66 @@
                 </div>
             </div>
         </div>
+        {% block carousel_widget %}
+            {{ include('house/carousel.html.twig', {'images':images, 'house':house}) }}
+        {% endblock %}
+        <div class="row" style="padding-top: 75px">
+            <div class="col-sm-4 offset-sm-2">
+                <span class="text-green montserrat" style="font-size: 20px">A casa dos sonhos: requinte e simplicidade</span>
+            </div>
+            <div class="col-sm-4">
+                <span class="montserrat fw-300" style="color: #222;">Lorem ipsum dolor sit amet, consectetur adi-piscing elit. Curabitur eu tortor leo. Cras a ex
+                    venenatis, ornare arcu nec, venenatis ex. Aene-an bibendum in diam eu vehicula. Quisque non ultricies dui.
+                    Vestibulum a pellentesque sem. Curabitur dapibus consequat risus eu pharetra.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="house-info">
+                <p class="info-tag montserrat text-green">01</p>
+                <p class="bodoni house-location-tag">Localização</p>
+                <p class="montserrat house-location fw-300">{{ house.street }}</p>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d751.089890036203!2d-8.611770270782783!3d41.14850489870542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464e35ab0d07b%3A0x477c2e6533f80148!2sAv.+dos+Aliados+173-155%2C+4000-065+Porto!5e0!3m2!1spt-PT!2spt!4v1546470444549" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
+            </div>
+        </div>
     </div>
+    <div id="container-helper">
+        <div class="container" style="border-left: 1px solid white; border-right: 1px solid white">
+            <div class="row" style="margin: 0; width: 100%">
+                <div class="house-info">
+                    <p class="info-tag montserrat text-green">02</p>
+                    <p class="bodoni house-location-tag" style="border-bottom: 1px solid white;">Amenidades</p>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-sm-4 offset-sm-2">
+                                <i class="fas fa-calendar-alt text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                <p class="montserrat letter-space1">Contrução do Prédio</p>
+                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.constructionYear | date("Y")}}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fas fa-square text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                <p class="montserrat letter-space1">Área Bruta</p>
+                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.grossarea ~ 'm'}}<sup>2</sup></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 offset-sm-2">
+                                <i class="fas fa-crop text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                <p class="montserrat letter-space1">Área Útil</p>
+                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.netarea ~ 'm'}}<sup>2</sup></p>
+                            </div>
+                            <div class="col-sm-4 d-flex flex-column">
+                                <i class="fas fa-bed text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                <p class="montserrat letter-space1">Assoalhadas</p>
+                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.rooms}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ include('index/contact_widget.html.twig') }}
+    </div>
+
+
 {% endblock %}

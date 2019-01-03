@@ -36,7 +36,9 @@
                 </div>
                 <div class="modal-body">
                     {% for city in cities %}
-                        <a href="{{ path('houseSearch',{'slug':city.name, 'type':"apartamentos"}) }}" class="row city-rows" style="height: 50px; margin: 0 20px; border-bottom: 1px solid #ddd; padding-bottom:15px; padding-top: 15px">
+                        <a href="{{ path('houseSearch',{'slug':city.name, 'type':"apartamentos"}) }}" class="row city-rows"
+                           style="height: 50px; margin: 0 20px; border-bottom: 1px solid #ddd;
+                            padding-bottom:15px; padding-top: 15px">
                             <div class="col-8">
                                 <span class="montserrat text-uppercase letter-space1 text-green" style="font-size: 12px;">{{ city.name }}</span>
                             </div>

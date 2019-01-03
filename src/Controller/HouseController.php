@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\House;
 use App\Entity\City;
+use App\Entity\HouseImage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,11 +30,13 @@ class HouseController extends AbstractController
                 $rent = 1;
         }
         $house = $this->findHouse($rent, $slug, $housename);
+        $images = $this->getDoctrine()->getRepository(HouseImage::class)->findBy(array("house"=>$house->getId()));
         return $this->render('house/index.html.twig', [
             'controller_name' => 'HouseController',
             'house' => $house,
             'city' => $slug,
-            'type' => $typeName
+            'type' => $typeName,
+            'images' => $images
         ]);
     }
 

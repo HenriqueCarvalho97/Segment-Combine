@@ -6,7 +6,7 @@
     <div class="col-sm-5 px-5 d-flex flex-column position-relative search-description">
         <p class="text-gray montserrat letter-space1">{{ house.netArea}} m<sup>2</sup></p>
         <p class="house-name text-green bodoni letter-space1">{{ house.name | upper}}</p>
-        <a href="{{ path('house',{'slug':city, 'type': type, 'housename': house.slug}) }}" class="house-explore text-green montserrat letter-space2 ">{{ "Explorar" | upper }}</a>
+        <a href="{{ path('house',{'slug':city, 'type': type, 'housename': house.slug}) }}" style="text-decoration: none!important;" class="house-explore text-green montserrat letter-space2 ">{{ "Explorar" | upper }}</a>
     </div>
     <div class="col-sm-7 bg-gray" style="background: url({{ asset('img/houses/' ~ house.mainImage ~ '.jpg') }}); background-size: cover">
     </div>

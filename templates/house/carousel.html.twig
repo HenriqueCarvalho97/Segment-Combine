@@ -1,0 +1,57 @@
+{% block carousel_widget %}
+    <div class="container" style="height: 70vh; margin-top: 15vh">
+        <div class="row" style="height: 100%;">
+            <div class="col-sm-2 d-block position-relative">
+                <a class="carousel-control-prev position-absolute d-flex" href="#myCarousel" role="button" data-slide="prev"
+                   style="right: 100px; bottom: 100px; top: auto!important; left: auto!important;height: 50px; width: 50px; background: #ccc">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next position-absolute d-flex" href="#myCarousel" role="button" data-slide="next"
+                   style="right: 50px; bottom: 100px; top: auto!important; left: auto!important;height: 50px; width: 50px; background: #ccc">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+                <div class="position-absolute bg-green text-white bodoni" style="font-size: 35px; z-index:2; bottom: -20px; right: -50px; height: 120px; width: 200px; text-align: center">
+                    {#<span>{{ "1 / " ~ images|length }}</span>#}
+                    <span id="actual-slide" class="position-absolute" style="top: 10px; left: 60px">1</span>
+                    <span class="position-absolute" style="top: 33px; left: 0; width:100%;text-align: center">/</span>
+                    <span class="position-absolute" style="bottom: 10px; right: 60px">{{ images | length + 1}}</span>
+                </div>
+            </div>
+            <div class="col-sm-8 bg-gray" style="padding: 0;">
+                <div id="myCarousel" class="carousel slide h-100" data-ride="carousel">
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item active h-100">
+                            <img class="d-block w-100 h-100" src="{{ asset('img/houses/' ~ house.mainImage ~ '.jpg') }}" alt="First slide">
+                        </div>
+                        {% for image in images %}
+                            <div class="carousel-item h-100">
+                                <img class="d-block w-100 h-100" src="{{ asset('img/house-images/house-' ~ image.house.id ~ '/' ~ image.name ~ '.jpg') }}" alt="First slide">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <script>
+        $('#myCarousel').on('slide.bs.carousel', function (event) {
+            var slide = parseFloat($("#actual-slide").html());
+            var maxSize = $(".carousel-item").length;
+            if(event.direction === "left"){
+                if(slide === maxSize){
+                    slide = 0;
+                }
+                slide += 1;
+                $("#actual-slide").html(slide);
+            }else{
+                if(slide === 1){
+                    slide = maxSize + 1;
+                }
+                slide -= 1;
+                $("#actual-slide").html(slide);
+            }
+        })
+    </script>
+{% endblock %}

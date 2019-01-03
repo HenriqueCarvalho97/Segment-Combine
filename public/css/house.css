@@ -3,6 +3,8 @@
     text-align: center;
     line-height: 120px;
     margin-bottom: 25px;
+    text-decoration: none!important;
+    color: rgb(3,164,156)!important;
 }
 
 .go-back::after{
@@ -16,4 +18,41 @@
 
 .container{
     padding: 0;
+}
+
+.house-info{
+    padding: 150px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.info-tag{
+    letter-spacing: 2px;
+    font-size: 40px;
+}
+
+.info-tag:first-letter{
+    vertical-align: super;
+}
+
+.house-location-tag{
+    font-size: 45px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.house-location{
+    color: #555;
+    letter-spacing: 2px;
+}
+
+#container-helper{
+    width: 100%;
+    background: #eee;
+}
+
+.house-location-tag{
+    width: 100%;
+    line-height: 0;
+    margin: 40px 0;
 }

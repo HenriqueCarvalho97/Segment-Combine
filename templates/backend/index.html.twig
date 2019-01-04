@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Segment Combine Backend{% endblock %}
+
+{% block additionalStylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% block navbar %}
+    {% endblock %}
+
+    {% block backendnavbar %}
+        {{ include('backend/navbar.html.twig',{'return':'index'}) }}
+    {% endblock %}
+
+    <p class="montserrat text-center fw-300" style="font-size: 30px; margin-bottom: 60px">Bem-vindo ao backend do Segment Combine</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 offset-sm-1 wrapper dropdown show">
+                <a class="btn btn-secondary dropdown-toggle bg-green montserrat" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gerir Cidades
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{{ path('new_city') }}">Adicionar cidade</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Alterar cidade</h6>
+                    {% for city in cities %}
+                        <a class="dropdown-item" href="{{ path('change_city', {'slug':city.name}) }}">{{ city.name }}</a>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="col-sm-4 offset-sm-2 wrapper dropdown show">
+                <a class="btn btn-secondary dropdown-toggle bg-green montserrat" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gerir Casas
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Adicionar casa</a>
+                    <a class="dropdown-item" href="#">Alterar ou remover casa</a>
+                </div>
+
+            </div>
+            <div class="col-sm-3 offset-sm-1 wrapper dropdown show">
+                {#<a class="btn btn-secondary dropdown-toggle bg-green montserrat" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                    {#Gerir Cidades#}
+                {#</a>#}
+
+                {#<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">#}
+                    {#<a class="dropdown-item" href="#">Adicionar cidade</a>#}
+                    {#<a class="dropdown-item" href="#">Alterar ou remover cidade</a>#}
+                {#</div>#}
+
+            </div>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-5 montserrat">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

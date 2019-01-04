@@ -1,0 +1,9 @@
+#form{
+    width: 80%;
+    margin-left: 10%;
+}
+
+#form_save{
+    background-color: rgb(3, 164, 156)!important;
+    border: none;
+}

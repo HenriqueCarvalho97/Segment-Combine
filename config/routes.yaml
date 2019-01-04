@@ -9,3 +9,22 @@ houseSearch:
 house:
     path: /{type}/cidades/{slug}/{housename}
     controller: App\Controller\HouseController::index
+
+backend:
+    path: /backend
+    controller: App\Controller\BackendController::index
+
+app_logout:
+    path: /logout
+
+new_city:
+  path: /backend/adicionar-cidade
+  controller: App\Controller\BackendController::newCity
+
+change_city:
+  path: /backend/alterar-cidade/{slug}
+  controller: App\Controller\BackendController::changeCity
+
+new_house:
+  paht: /backend/adicionar-casa
+  controller: App\Controller\BackendController:newHouse

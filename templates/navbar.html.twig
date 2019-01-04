@@ -17,9 +17,9 @@
                 <img src="{{ asset('img/logo.png') }}" alt="" class="logo-1" style="margin-bottom: 5px">
                 <img src="{{ asset('img/logo-name.png') }}" alt="" class="logo-2">
             </div>
-            <div class="col-sm-4 d-none d-sm-inline-flex menu">
+            <a href="{{ path('backend') }}" class="col-sm-4 d-none d-sm-inline-flex menu">
                 <i class="fas fa-users fa-2x text-green m-auto"></i>
-            </div>
+            </a>
         </div>
     </div>
 </div>
@@ -34,24 +34,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 h-100 position-relative p-0" id="nav-col-1">
+            <a href="{{ path('index') }}" class="col-6 h-100 position-relative p-0" id="nav-col-1">
                 <span class="nav-span position-absolute text-white letter-space1 w-100">INÍCIO</span>
-            </div>
+            </a>
             <div class="col-1"></div>
         </div>
         <div class="col-xl-4 row">
             <div class="col-3"></div>
-            <div class="col-6 h-100 position-relative p-0" id="nav-col-2">
+            <div class="col-6 h-100 position-relative p-0" id="nav-col-2" data-toggle="modal" data-target="#imoveis">>
                 <span class="nav-span position-absolute text-white letter-space1 w-100">COMPRAR</span>
             </div>
             <div class="col-3"></div>
         </div>
         <div class="col-xl-4 row">
             <div class="col-1"></div>
-            <div class="col-6 h-100 position-relative p-0" id="nav-col-3">
+            <div class="col-6 h-100 position-relative p-0" id="nav-col-3" data-toggle="modal" data-target="#apartamentos">
                 <span class="nav-span position-absolute text-white letter-space1 w-100">ALUGAR</span>
             </div>
             <div class="col-5 position-relative"></div>
         </div>
     </div>
 </div>
+
+{% block city_widget %}
+    {{ include('index/city_widget.html.twig', {'cities':cities}) }}
+{% endblock %}

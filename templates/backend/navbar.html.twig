@@ -1,0 +1,17 @@
+{% block backendnavbar %}
+
+    <a href="{{ path(return)}}" class="go-back-home">
+        {% if return == 'backend' %}
+            <p class="text-green">Voltar a Backend</p>
+        {% else %}
+            <p class="text-green">Voltar a Homepage</p>
+        {% endif %}
+    </a>
+
+    <div class="logo bg-alert" style="background:  url({{ asset('img/logo-with-name2.png') }}) no-repeat center center; background-size: contain"></div>
+
+    <button type="button" class="bg-green btn logout">
+        <a class="text-white montserrat" href="{{ path('app_logout') }}">Logout</a>
+    </button>
+
+{% endblock %}

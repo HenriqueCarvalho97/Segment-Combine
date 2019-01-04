@@ -8,14 +8,19 @@
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
+        "symfony/form": "*",
         "symfony/framework-bundle": "*",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "*",
         "symfony/twig-bundle": "*",
+        "symfony/validator": "*",
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.1",
         "symfony/dotenv": "*",
-        "symfony/maker-bundle": "^1.9"
+        "symfony/maker-bundle": "^1.9",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {

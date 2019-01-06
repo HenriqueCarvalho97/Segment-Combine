@@ -44,14 +44,24 @@ class House
     private $street;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
-    private $latitude;
+    private $location;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
-    private $longitude;
+    private $main_description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $secondary_description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $main_image;
 
     /**
      * @ORM\Column(type="datetime")
@@ -83,16 +93,9 @@ class House
      */
     private $images;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mainImage;
-
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        $this->slug = preg_replace("/[\s_]/", "-", preg_replace("/[\s-]+/", " ",
-            preg_replace("/[^a-z0-9_\s-]/", "", strtolower($this->name))));
     }
 
     public function getId(): ?int
@@ -100,12 +103,12 @@ class House
         return $this->id;
     }
 
-    public function getCity()
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(?City $city): self
     {
         $this->city = $city;
 
@@ -120,6 +123,8 @@ class House
     public function setName(string $name): self
     {
         $this->name = $name;
+        $this->slug = preg_replace("/[\s_]/", "-", preg_replace("/[\s-]+/", " ",
+            preg_replace("/[^a-z0-9_\s-]/", "", strtolower($this->name))));
 
         return $this;
     }
@@ -160,26 +165,46 @@ class House
         return $this;
     }
 
-    public function getLatitude(): ?float
-    {
-        return $this->latitude;
+    public function getLocation(): ?string {
+        return $this->location;
     }
 
-    public function setLatitude(float $latitude): self
+    public function setLocation(string $location): self
     {
-        $this->latitude = $latitude;
+        $this->location = $location;
 
         return $this;
     }
 
-    public function getLongitude(): ?float
-    {
-        return $this->longitude;
+    public function getMainDescription(): ?string {
+        return $this->main_description;
     }
 
-    public function setLongitude(float $longitude): self
+    public function setMainDescription(string $main_description): self
     {
-        $this->longitude = $longitude;
+        $this->main_description = $main_description;
+
+        return $this;
+    }
+
+    public function getSecondaryDescription(): ?string {
+        return $this->secondary_description;
+    }
+
+    public function setSecondaryDescription(string $secondary_description): self
+    {
+        $this->secondary_description = $secondary_description;
+
+        return $this;
+    }
+
+    public function getMainImage(): ?string {
+        return $this->main_image;
+    }
+
+    public function setMainImage(string $main_image): self
+    {
+        $this->main_image = $main_image;
 
         return $this;
     }
@@ -271,19 +296,6 @@ class House
                 $image->setHouse(null);
             }
         }
-
-        return $this;
-    }
-
-
-    public function getMainImage(): ?string
-    {
-        return $this->mainImage;
-    }
-
-    public function setMainImage(string $mainImage): self
-    {
-        $this->mainImage = $mainImage;
 
         return $this;
     }

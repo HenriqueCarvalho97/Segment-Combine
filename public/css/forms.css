@@ -1,9 +1,19 @@
 #form{
     width: 80%;
     margin-left: 10%;
+    margin-bottom: 50px;
 }
 
 #form_save{
     background-color: rgb(3, 164, 156)!important;
     border: none;
+}
+
+.delete-button{
+    background-color: #ff4d4d;
+    padding: 10px;
+    border-radius: 5px;
+    color: white!important;
+    margin-left: 10%;
+    text-decoration: none!important;
 }

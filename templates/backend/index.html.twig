@@ -27,7 +27,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{{ path('new_city') }}">Adicionar cidade</a>
                     <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Alterar cidade</h6>
+                    <h6 class="dropdown-header">Alterar ou remover cidade</h6>
                     {% for city in cities %}
                         <a class="dropdown-item" href="{{ path('change_city', {'slug':city.name}) }}">{{ city.name }}</a>
                     {% endfor %}
@@ -40,8 +40,12 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Adicionar casa</a>
-                    <a class="dropdown-item" href="#">Alterar ou remover casa</a>
+                    <a class="dropdown-item" href="{{ path('new_house') }}">Adicionar casa</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Alterar ou remover casa na cidade</h6>
+                    {% for city in cities %}
+                        <a class="dropdown-item" href="{{ path('change_house_city', {'slug':city.name}) }}">{{ city.name }}</a>
+                    {% endfor %}
                 </div>
 
             </div>
@@ -59,6 +63,11 @@
         </div>
 
         {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-5 montserrat">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
             <div class="alert alert-success mt-5 montserrat">
                 {{ message }}
             </div>

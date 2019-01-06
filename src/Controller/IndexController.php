@@ -26,4 +26,9 @@ class IndexController extends AbstractController
         $cities = $repo->findAll();
         return $cities;
     }
+
+    public function navbar(){
+        $cities = $this->getCities();
+        return $this->render('navbar.html.twig', array('cities' => $cities));
+    }
 }

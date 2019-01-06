@@ -8,6 +8,6 @@
         <p class="house-name text-green bodoni letter-space1">{{ house.name | upper}}</p>
         <a href="{{ path('house',{'slug':city, 'type': type, 'housename': house.slug}) }}" style="text-decoration: none!important;" class="house-explore text-green montserrat letter-space2 ">{{ "Explorar" | upper }}</a>
     </div>
-    <div class="col-sm-7 bg-gray" style="background: url({{ asset('img/houses/' ~ house.mainImage ~ '.jpg') }}); background-size: cover">
+    <div class="col-sm-7 bg-gray" style="background: url({{ asset('img/houses/' ~ house.mainImage) }}); background-size: cover">
     </div>
 </div>

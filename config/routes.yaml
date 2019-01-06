@@ -26,5 +26,17 @@ change_city:
   controller: App\Controller\BackendController::changeCity
 
 new_house:
-  paht: /backend/adicionar-casa
+  path: /backend/adicionar-casa
   controller: App\Controller\BackendController:newHouse
+
+delete_city:
+  path: /backend/apagar-cidade/{id}
+  controller: App\Controller\BackendController:deleteCity
+
+change_house_city:
+  path: /backend/escolher-casa/{slug}/
+  controller: App\Controller\BackendController:showHousesCity
+
+change_house:
+  path: /backend/alterar-casa/{city}/{house}
+  controller: App\Controller\BackendController:changeHouse

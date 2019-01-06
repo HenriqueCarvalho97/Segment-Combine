@@ -38,12 +38,10 @@
         {% endblock %}
         <div class="row" style="padding-top: 75px">
             <div class="col-sm-4 offset-sm-2">
-                <span class="text-green montserrat" style="font-size: 20px">A casa dos sonhos: requinte e simplicidade</span>
+                <span class="text-green montserrat" style="font-size: 20px">{{ house.mainDescription }}</span>
             </div>
             <div class="col-sm-4">
-                <span class="montserrat fw-300" style="color: #222;">Lorem ipsum dolor sit amet, consectetur adi-piscing elit. Curabitur eu tortor leo. Cras a ex
-                    venenatis, ornare arcu nec, venenatis ex. Aene-an bibendum in diam eu vehicula. Quisque non ultricies dui.
-                    Vestibulum a pellentesque sem. Curabitur dapibus consequat risus eu pharetra.</span>
+                <span class="montserrat fw-300" style="color: #222;">{{ house.secondaryDescription }}</span>
             </div>
         </div>
         <div class="row">
@@ -52,7 +50,7 @@
                 <p class="bodoni house-location-tag">Localização</p>
                 <p class="montserrat house-location fw-300">{{ house.street }}</p>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d751.089890036203!2d-8.611770270782783!3d41.14850489870542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464e35ab0d07b%3A0x477c2e6533f80148!2sAv.+dos+Aliados+173-155%2C+4000-065+Porto!5e0!3m2!1spt-PT!2spt!4v1546470444549" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
+                    <iframe src="{{ house.location }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
             </div>
         </div>
     </div>

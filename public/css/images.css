@@ -1,0 +1,34 @@
+.my-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.my-image{
+    margin-bottom: 30px;
+}
+
+.delete-image{
+    top: -15px;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 50pc;
+    background: #eee;
+    box-shadow: 0 0 5px #000;
+    transition: 200ms;
+}
+
+.delete-image:hover{
+    transform: scale(1.15);
+    transition: 200ms;
+}
+
+.add-image{
+    min-height: 190px!important;
+    transition: 200ms;
+}
+
+.add-image:hover{
+    filter: invert(1);
+    transition: 200ms;
+}

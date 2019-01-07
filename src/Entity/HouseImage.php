@@ -22,7 +22,7 @@ class HouseImage
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\house", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="App\Entity\House", inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
      */
     private $house;
@@ -44,12 +44,12 @@ class HouseImage
         return $this;
     }
 
-    public function getHouse(): ?house
+    public function getHouse(): ?House
     {
         return $this->house;
     }
 
-    public function setHouse(?house $house): self
+    public function setHouse(?House $house): self
     {
         $this->house = $house;
 

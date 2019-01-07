@@ -22,8 +22,14 @@
     {{ form_widget(form) }}
     {{ form_end(form) }}
 
-    {#<a class="delete-button" href="{{ path('delete_city', {'id': city.id }) }}">Apagar Cidade</a>#}
+    <a class="images-button bg-green" href="{{ path('manage_images', {'slug':house.slug}) }}">Adicionar e Remover Imagens</a>
 
+    <div style="margin-bottom: 100px; margin-top: 50px">
+        <a class="delete-button" href="{{ path('delete_house', {'slug': house.slug}) }}"
+           onclick="return confirm('Tem a certeza que deseja apagar a casa? Esta ação é irreversível')">
+            Apagar Casa
+        </a>
+    </div>
 {% endblock %}
 
 {% block additionalJavascripts %}

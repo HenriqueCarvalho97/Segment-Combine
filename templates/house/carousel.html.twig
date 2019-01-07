@@ -25,7 +25,7 @@
                         </div>
                         {% for image in images %}
                             <div class="carousel-item h-100">
-                                <img class="d-block w-100 h-100" src="{{ asset('img/house-images/house-' ~ image.house.id ~ '/' ~ image.name ~ '.jpg') }}" alt="First slide">
+                                <img class="d-block w-100 h-100" src="{{ asset('img/house-images/' ~ image.house.id ~ '/' ~ image.name) }}" alt="First slide">
                             </div>
                         {% endfor %}
                     </div>

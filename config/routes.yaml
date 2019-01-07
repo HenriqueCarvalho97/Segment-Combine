@@ -34,8 +34,24 @@ delete_city:
   controller: App\Controller\BackendController:deleteCity
 
 change_house_city:
-  path: /backend/escolher-casa/{slug}/
+  path: /backend/escolher-casa/{slug}
   controller: App\Controller\BackendController:showHousesCity
+
+delete_house:
+  path: /backend/alterar-casa/apagar/{slug}
+  controller: App\Controller\BackendController::deleteHouse
+
+manage_images:
+  path: /backend/alterar-casa/imagens/{slug}
+  controller: App\Controller\ImagesController::manageImages
+
+image_form:
+  path: /backend/image-form/{slug}
+  controller: App\Controller\ImagesController::inputImage
+
+delete_image:
+  path: /backend/delete-image/{image}
+  controller: App\Controller\ImagesController:deleteImage
 
 change_house:
   path: /backend/alterar-casa/{city}/{house}

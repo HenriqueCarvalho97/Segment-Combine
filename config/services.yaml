@@ -6,6 +6,7 @@
 parameters:
     locale: 'en'
     housemainimage_directory:  '%kernel.project_dir%/public/img/houses'
+    houseimages_directory:  '%kernel.project_dir%/public/img/house-images'
 
 services:
     # default configuration for services in *this* file

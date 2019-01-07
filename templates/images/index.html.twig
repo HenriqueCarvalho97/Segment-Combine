@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Alterar Cidade{% endblock %}
+{% block title %}Alterar Imagens da Casa{% endblock %}
 
 {% block additionalStylesheets %}
     <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/images.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 {% endblock %}
-
-{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
 
@@ -18,15 +16,30 @@
         {{ include('backend/navbar.html.twig',{'return':'backend'}) }}
     {% endblock %}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <div class="container">
 
-    <a class="delete-button" href="{{ path('delete_city', {'id': city.id }) }}"
-       onclick="return confirm('Tem a certeza que deseja apagar a cidade? Esta ação é irreversível')">
-        Apagar Cidade
-    </a>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-5 montserrat">
+                {{ message }}
+            </div>
+        {% endfor %}
 
+        <div class="row">
+        {% for image in images %}
+            <div class="d-inline-flex position-relative col-sm-4 my-image">
+                <img src="{{ asset('img/house-images/' ~ house.id ~ '/' ~ image.name) }}" alt="">
+                <a href="{{ path("delete_image",{"image":image.name}) }}" class="position-absolute delete-image d-flex">
+                    <i class="fas fa-times" style="margin: auto; color: #888"></i>
+                </a>
+            </div>
+        {% endfor %}
+            <a href="{{ path("image_form",{"slug":house.slug}) }}" class="d-inline-flex col-sm-4 my-image add-image">
+                <div class="d-flex" style="height: 100%; width: 100%; background: #ddd">
+                    <i class="fas fa-plus" style="margin: auto; color: #888; font-size: 30px"></i>
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock %}
 
 {% block additionalJavascripts %}

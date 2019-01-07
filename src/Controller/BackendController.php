@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use App\Entity\City;
 use App\Entity\House;
+use App\Entity\HouseImage;
 
 class BackendController extends AbstractController
 {
@@ -161,7 +162,6 @@ class BackendController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $house = $form->getData();
-
             $file = $form->get('mainImage')->getData();
             $fileDir = $this->getParameter('housemainimage_directory');
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
@@ -223,6 +223,7 @@ class BackendController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $house = $entityManager->getRepository(House::class)->findOneBy(array("slug"=>$house));
+
         $form = $this->createFormBuilder($house)
             ->add('name', TextType::class, array('label' => 'Nome', 'required' => true, 'attr' => array("placeholder" => "Nome da casa")))
             ->add('street', TextType::class, array('label' => 'Rua', 'required' => true, 'attr' => array("placeholder" => "Nome da rua")))
@@ -241,39 +242,87 @@ class BackendController extends AbstractController
                     'Comprar' => 0
                 ), 'label' => "Género de Casa"
             ))
-            ->add('mainImage', FileType::class, array('mapped'=> false))
-            ->add('save', SubmitType::class, array('label' => 'Criar Casa'))
+            ->add('mainImage', FileType::class, array('mapped'=> false, 'required'=>false))
+            ->add('save', SubmitType::class, array('label' => 'Alterar Casa'))
             ->getForm();
 
         $form->handleRequest($request);
 
+        $fileSystem = new Filesystem();
+        if(!file_exists($this->getParameter('houseimages_directory').'/'.$house->getId())){
+            $fileSystem->mkdir($this->getParameter('houseimages_directory').'/'.$house->getId());
+        }
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $file = $form->get('mainImage')->getData();
-            $fileDir = $this->getParameter('housemainimage_directory');
-            $fileName = $house->getMainImage();
-            if(file_exists("$fileDir/$fileName")){
-                $fileSystem = new Filesystem();
-                $fileName2 = $fileDir . $fileName;
-                $fileSystem->remove($fileName2);
+            if($file){
+
+                $fileDir = $this->getParameter('housemainimage_directory');
+                $fileName = $house->getMainImage();
+
+                if(file_exists("$fileDir/$fileName")){
+                    $fileSystem = new Filesystem();
+                    $fileName2 = $fileDir . $fileName;
+                    $fileSystem->remove($fileName2);
+                }
+
+                $file->move($fileDir,$fileName);
+                $house->setMainImage($fileName);
+
             }
-            $file->move($fileDir,$fileName);
-            $house->setMainImage($fileName);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($house);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Cidade alterada com sucesso');
+            $this->addFlash('success', 'Casa alterada com sucesso');
 
             return $this->redirectToRoute('backend');
         }
 
         return $this->render('backend/changehouse.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(), 'house'=>$house
         ));
     }
 
+    /**
+     * @Route("backend\alterar-casa\apagar\{slug}", name="delete_house")
+     */
+    public function deleteHouse($slug){
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $house = $entityManager->getRepository(House::class)->findOneBy(array('slug' => $slug));
+        $houseImages = $entityManager->getRepository(HouseImage::class)->findBy(array('house'=>$house));
+
+        foreach($houseImages as $image){
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
+
+        $fileDir = $this->getParameter('housemainimage_directory');
+        $fileName = $house->getMainImage();
+        if(file_exists("$fileDir/$fileName")){
+            $fileSystem = new Filesystem();
+            $fileName2 = $fileDir . '/' . $fileName;
+            $fileSystem->remove($fileName2);
+        }
+
+        $directory = $this->getParameter('houseimages_directory') . '/' . $house->getId();
+        if(file_exists($directory)){
+            $fileSystem = new Filesystem();
+            $fileSystem->remove($directory);
+        }
+
+        $entityManager->remove($house);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Casa removida com sucesso');
+
+        return $this->redirectToRoute('backend');
+    }
 
     /**
      * @return string

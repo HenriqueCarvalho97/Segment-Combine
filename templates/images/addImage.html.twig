@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Alterar Cidade{% endblock %}
+{% block title %}Adicionar Imagem{% endblock %}
 
 {% block additionalStylesheets %}
     <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
@@ -22,10 +22,6 @@
     {{ form_widget(form) }}
     {{ form_end(form) }}
 
-    <a class="delete-button" href="{{ path('delete_city', {'id': city.id }) }}"
-       onclick="return confirm('Tem a certeza que deseja apagar a cidade? Esta ação é irreversível')">
-        Apagar Cidade
-    </a>
 
 {% endblock %}
 

@@ -139,15 +139,15 @@ class BackendController extends AbstractController
         $form = $this->createFormBuilder($house)
             ->add('name', TextType::class, array('label' => 'Nome', 'required' => true, 'attr' => array("placeholder" => "Nome da casa")))
             ->add('street', TextType::class, array('label' => 'Rua', 'required' => true, 'attr' => array("placeholder" => "Nome da rua")))
-            ->add('location', TextType::class, array('label' => 'Location Iframe'))
-            ->add('mainDescription', TextType::class, array('label' => 'Descrição da casa primária'))
-            ->add('secondaryDescription', TextType::class, array('label' => 'Descrição da casa secundária'))
+            ->add('location', TextType::class, array('label' => 'Location iframe', 'attr' => array("placeholder" => "iframe da localização")))
+            ->add('mainDescription', TextType::class, array('label' => 'Descrição da casa primária', 'attr' => array("placeholder" => "Descrição primária")))
+            ->add('secondaryDescription', TextType::class, array('label' => 'Descrição da casa secundária', 'attr' => array("placeholder" => "Descrição secundária")))
             ->add('city', EntityType::class, array('class' => City::class, 'choice_label' => 'name', 'label' => 'Cidade', 'required' => true))
             ->add('remodelationYear', DateType::class, array('label'=>'Ano de Remodelação', 'required'=>true))
             ->add('constructionYear', DateType::class, array('label'=>'Ano de Construção do Prédio', 'required'=>true))
-            ->add('rooms', IntegerType::class, array('label'=>'Número de Quartos'))
-            ->add('netarea', NumberType::class, array('label' => 'Área Útil'))
-            ->add('grossarea', NumberType::class, array('label' => 'Área Bruta'))
+            ->add('rooms', IntegerType::class, array('label'=>'Número de Quartos', 'attr' => array("placeholder" => "Nº de Quartos")))
+            ->add('netarea', NumberType::class, array('label' => 'Área Útil', 'attr' => array("placeholder" => "Área útil da casa")))
+            ->add('grossarea', NumberType::class, array('label' => 'Área Bruta', 'attr' => array("placeholder" => "Área bruta da casa")))
             ->add('rent', ChoiceType::class, array(
                 'choices'  => array(
                     'Alugar' => 1,

@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block body %}
-    <div class="homepage-container position-relative d-flex">
+
+    <div class="fadein homepage-container position-relative d-flex">
         <div class="container h-100 position-relative" style="z-index: 2">
             <div class="row h-100">
                 <div class="col-12 d-flex flex-column">
@@ -14,7 +15,7 @@
                         <span class="position-absolute roboto fw-700 text-type2">Imóveis de Luxo</span>
                     </div>
                     <div class="h-50 position-relative" style="">
-                        <div class="bg-green position-absolute d-flex read-more" style="height: 100px; width: 250px; bottom: 70px; left: 30px">
+                        <div class="bg-green position-absolute d-flex read-more" onclick="scrollDown()" style="height: 100px; width: 250px; bottom: 70px; left: 30px">
                             <span class="montserrat letter-space2 text-white" style="margin: auto">DESCOBRIR</span>
                         </div>
                     </div>
@@ -26,18 +27,18 @@
         </div>
     </div>
 
-    <div class="container container-seg1">
-        <div class="row h-50">
+    <div class="container container-seg1" id="index-anchor">
+        <div class="fadein row h-50">
             <div class="col-md-6 col-sm-12 seg1-border" style="height: 300px;">
                 <div class="col-sm-12 d-flex mb-5">
-                    <i class="fas fa-city text-green fa-2x m-auto"></i>
+                    <i class=" fas fa-city text-green fa-2x m-auto"></i>
                 </div>
                 <div class="col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
-                    <span class="bodoni text-type1" style="margin:auto; line-height:60px;
+                    <span class=" bodoni text-type1" style="margin:auto; line-height:60px;
                      text-align: center; color: #ccc;">Os Nossos Imóveis</span>
                 </div>
                 <div class="col-sm-12 d-flex mt-5">
-                    <button type="button" class="btn btn-lg bg-green text-white montserrat m-auto letter-space1"
+                    <button type="button" class=" btn btn-lg bg-green text-white montserrat m-auto letter-space1"
                             style="font-size: 15px" data-toggle="modal" data-target="#imoveis">CIDADES</button>
                 </div>
             </div>
@@ -46,28 +47,28 @@
                     <i class="fas fa-suitcase text-green fa-2x m-auto"></i>
                 </div>
                 <div class="col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
-                    <span class="bodoni text-type1" style="margin:auto; line-height:60px;
+                    <span class=" bodoni text-type1" style="margin:auto; line-height:60px;
                      text-align: center; color: #ccc;">Os Nossos Apartamentos</span>
                 </div>
                 <div class="col-sm-12 d-flex mt-5">
-                    <button type="button" class="btn btn-lg bg-green text-white montserrat m-auto letter-space1"
+                    <button type="button" class=" btn btn-lg bg-green text-white montserrat m-auto letter-space1"
                             style="font-size: 15px" data-toggle="modal" data-target="#apartamentos">CIDADES</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-gray pb-4" style="width: 100vw;">
+    <div class="bg-gray pb-4 fadein" style="width: 100vw;">
         <div class="container bg-gray">
             <div class="row about-us-subcontainer">
                 <div class="col-sm-12 mt-5">
-                    <span class="bodoni text-white letter-space1 w-100" style="font-size: 30px">Quem Somos</span>
+                    <span class="bodoni text-white letter-space1 w-100 " style="font-size: 30px">Quem Somos</span>
                     <div class="w-100 mt-4">
                         <div class="d-inline-block" style="height: 5px; width: 75px; border-top: 1px solid white"></div>
                         <span class="text-white text-uppercase montserrat letter-space1 ml-3" style="font-size: 14px; line-height: 20px">Segment Combine</span>
                     </div>
                     <div class="w-100 mt-5 montserrat text-white fw-200 text-type3">
-                        <p>A Segment Combine é uma sociedade de compra e venda de imóveis bem como aluguer de apartamentos.
+                        <p >A Segment Combine é uma sociedade de compra e venda de imóveis bem como aluguer de apartamentos.
                             Acreditamos na reabilitação e reconstrução de imóveis com o intuito de os tornar em imóveis de luxo
                             para que os possa desfrutar da melhor maneira.
                         </p><br>
@@ -82,7 +83,7 @@
 
     <div class="bg-light pt-4" style="width: 100vw;">
         <div class="container" style="padding-bottom: 100px">
-            <div class="row">
+            <div class="row fadein">
                 <div class="col-sm-12 mt-5">
                     <span class="bodoni text-green letter-space1 w-100" style="font-size: 30px">Parcerias</span>
                     <div class="w-100 mt-4">

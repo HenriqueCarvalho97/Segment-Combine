@@ -8,12 +8,12 @@
 
 {% block body %}
     <div class="container" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
-        <a class="montserrat text-green letter-space1 pt-5 d-block go-back" href="javascript:history.back()">
+        <a class="montserrat fadein text-green letter-space1 pt-5 d-block go-back" href="javascript:history.back()">
             {{ "Regressar" | upper }}
         </a>
-        <span class="p-5 montserrat text-gray letter-space2 d-block" style="font-size: 10px; text-align: center; width: 100%">{{ type|upper }}</span>
-        <span class="bodoni text-green  d-block" style="font-size: 60px; text-align: center; width: 100%">{{ house.name}}</span>
-        <div class="row mt-5" style="width: 50%; margin-left: 25%">
+        <span class="p-5 montserrat text-gray letter-space2 d-block fadein" style="font-size: 10px; text-align: center; width: 100%">{{ type|upper }}</span>
+        <span class="bodoni text-green fadein d-block" style="font-size: 60px; text-align: center; width: 100%">{{ house.name}}</span>
+        <div class="row pt-5 fadein" style="width: 50%; margin-left: 25%">
             <div class="col-sm-6 d-flex flex-column" style="border-right: 1px solid rgb(3,164,156)">
                 <span class="text-gray montserrat d-block letter-space1" style="text-align: center; font-size: 12px">{{ "Ano"|upper }}</span>
                 <span class="text-green p-3 bodoni d-block letter-space1" style="text-align: center; font-size: 22px">{{ house.remodelationYear|date('Y')}}</span>
@@ -36,7 +36,7 @@
         {% block carousel_widget %}
             {{ include('house/carousel.html.twig', {'images':images, 'house':house}) }}
         {% endblock %}
-        <div class="row" style="padding-top: 75px">
+        <div class="row fadein" style="padding-top: 75px">
             <div class="col-sm-4 offset-sm-2">
                 <span class="text-green montserrat" style="font-size: 20px">{{ house.mainDescription }}</span>
             </div>
@@ -46,10 +46,10 @@
         </div>
         <div class="row">
             <div class="house-info">
-                <p class="info-tag montserrat text-green">01</p>
-                <p class="bodoni house-location-tag">Localização</p>
-                <p class="montserrat house-location fw-300">{{ house.street }}</p>
-                <div class="map">
+                <p class="info-tag montserrat text-green fadein">01</p>
+                <p class="bodoni house-location-tag fadein">Localização</p>
+                <p class="montserrat house-location fw-300 fadein">{{ house.street }}</p>
+                <div class="map fadein">
                     <iframe src="{{ house.location }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
         <div class="container" style="border-left: 1px solid white; border-right: 1px solid white">
             <div class="row" style="margin: 0; width: 100%">
                 <div class="house-info">
-                    <p class="info-tag montserrat text-green">02</p>
-                    <p class="bodoni house-location-tag" style="border-bottom: 1px solid white;">Amenidades</p>
+                    <p class="info-tag montserrat text-green fadein">02</p>
+                    <p class="bodoni house-location-tag fadein" style="border-bottom: 1px solid white;">Amenidades</p>
                     <div class="container mt-5">
-                        <div class="row">
+                        <div class="row fadein">
                             <div class="col-sm-4 offset-sm-2">
                                 <i class="fas fa-calendar-alt text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
                                 <p class="montserrat letter-space1">Contrução do Prédio</p>
@@ -73,7 +73,7 @@
                                 <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.grossarea ~ 'm'}}<sup>2</sup></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row fadein">
                             <div class="col-sm-4 offset-sm-2">
                                 <i class="fas fa-crop text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
                                 <p class="montserrat letter-space1">Área Útil</p>

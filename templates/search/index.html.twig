@@ -7,13 +7,14 @@
 {% endblock %}
 
 {% block body %}
-    <div class="side-info d-flex">
+    <div class="fadein side-info d-flex">
         <button type="button" data-toggle="modal" data-target="{{ "#" ~ type }}"
                 class="montserrat letter-space1">{{ "Alterar cidade" | upper }}</button>
         <a href="{{ path('houseSearch',{'slug':city, 'type': typeSearch, 'cities':cities}) }}" class="montserrat letter-space1">{{ "Descobrir " | upper ~ typeNameSearch | upper }}</a>
     </div>
-    <div class="container" style="border-right: 1px solid #eee; border-left: 1px solid #eee">
+    <div class="container fadein" style="border-right: 1px solid #eee; border-left: 1px solid #eee">
         <h1 id="city_name" class="text-green bodoni">{{ city }}</h1>
+        <span class="montserrat letter-space1" style="width:100%; display: block; color: #999; padding-bottom: 25vh">Deslize para ver as casas</span>
         {% set myValue = 1 %}
         {% for house in houses %}
             {{ include('search/house_widget.html.twig', {'house':house}) }}

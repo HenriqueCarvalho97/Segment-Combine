@@ -9,15 +9,12 @@
 
 .go-back::after{
     content: '';
-    width: 100%;
+    width: calc(100% + 30px);
     height: 1px;
     display: block;
     border-bottom: 1px solid #ddd;
     margin-top: -61px;
-}
-
-.container{
-    padding: 0;
+    margin-left: -15px;
 }
 
 .house-info{
@@ -52,7 +49,95 @@
 }
 
 .house-location-tag{
-    width: 100%;
+    width: calc(100% + 30px);
     line-height: 0;
-    margin: 40px 0;
+    margin: 40px 0 40px -15px;
+}
+
+.carousel-indicators, .carousel-control-next, .carousel-control-prev{
+    display: none;
+}
+
+.year{
+    border-right: 1px solid rgb(3,164,156)
+}
+
+.container-share{
+    font-size: 22px; width: 50%; margin-left: 25%; text-align: center; padding: 1rem 0
+}
+
+.super-container-carousel{
+    height: 70vh;
+}
+
+@media screen and (max-width: 991px){
+    .container-carousel{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container-carousel-controller *{
+        display: none;
+    }
+
+    .carousel-indicators, .carousel-control-next, .carousel-control-prev{
+        display: flex;
+    }
+
+    .control-carousel{
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .container-house-description, .container-map{
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .map iframe{
+        width: 100%;
+    }
+
+    .super-container-carousel{
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .year{
+        border-right: none;
+    }
+
+    .container-year-share{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container-share{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .share-button{
+        width: 33%;
+    }
+
+    .container-house-description{
+        padding-top: 0!important;
+    }
+
+    .container-house-description div:first-child{
+        margin-bottom: 20px;
+    }
+
+    .house-location-tag{
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1024px) and (max-width: 1024px){
+    .super-container-carousel{
+        height: 40vh;
+    }
 }

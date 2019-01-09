@@ -116,7 +116,7 @@
     font-weight: 700;
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 575px){
     .close-nav-button{
         transform: scale(0.7);
         left: 10px;
@@ -143,4 +143,8 @@
         transform: rotateZ(180deg);
 
     }
+}
+
+@media screen and (max-width: 576px) {
+
 }

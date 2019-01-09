@@ -31,7 +31,7 @@
                 'App\\Controller\\IndexController:navbar'
             )) }}
         {% endblock %}
-        <div style="margin-top: 120px;">
+        <div style="padding-top: 120px;">
             {% block body %}
             {% endblock %}
         </div>
@@ -39,6 +39,7 @@
     </body>
     {% block additionalJavascripts %}
     {% endblock %}
+
     <script>
         $(window).scroll(function(){
             var height = $("#navigationbar").height();
@@ -63,7 +64,10 @@
                 var top_of_element = $(this).offset().top;
                 var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-                if( bottom_of_window > top_of_element + 280){
+                if( bottom_of_window > top_of_element + 100){
+                    $(this).animate({'opacity':'1'},1000);
+                }
+                if( top_of_element <= $(window).height()){
                     $(this).animate({'opacity':'1'},1000);
                 }
             });

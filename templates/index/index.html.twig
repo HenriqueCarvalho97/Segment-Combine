@@ -7,7 +7,7 @@
 
 {% block body %}
 
-    <div class="fadein homepage-container position-relative d-flex">
+    <div class="fadein homepage-container position-relative d-flex" style="height: calc(100vh -120px); overflow: hidden">
         <div class="container h-100 position-relative" style="z-index: 2">
             <div class="row h-100">
                 <div class="col-12 d-flex flex-column">
@@ -28,29 +28,29 @@
     </div>
 
     <div class="container container-seg1" id="index-anchor">
-        <div class="fadein row h-50">
+        <div class="row h-50">
             <div class="col-md-6 col-sm-12 seg1-border" style="height: 300px;">
-                <div class="col-sm-12 d-flex mb-5">
+                <div class="fadein col-sm-12 d-flex mb-5">
                     <i class=" fas fa-city text-green fa-2x m-auto"></i>
                 </div>
-                <div class="col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
+                <div class="fadein col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
                     <span class=" bodoni text-type1" style="margin:auto; line-height:60px;
                      text-align: center; color: #ccc;">Os Nossos Imóveis</span>
                 </div>
-                <div class="col-sm-12 d-flex mt-5">
+                <div class="fadein col-sm-12 d-flex mt-5">
                     <button type="button" class=" btn btn-lg bg-green text-white montserrat m-auto letter-space1"
                             style="font-size: 15px" data-toggle="modal" data-target="#imoveis">CIDADES</button>
                 </div>
             </div>
             <div class=" col-md-6 col-sm-12" style="height: 300px">
-                <div class="col-sm-12 d-flex mb-5">
+                <div class="fadein col-sm-12 d-flex mb-5">
                     <i class="fas fa-suitcase text-green fa-2x m-auto"></i>
                 </div>
-                <div class="col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
+                <div class="fadein col-sm-8 offset-sm-2 d-flex" style="border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0">
                     <span class=" bodoni text-type1" style="margin:auto; line-height:60px;
                      text-align: center; color: #ccc;">Os Nossos Apartamentos</span>
                 </div>
-                <div class="col-sm-12 d-flex mt-5">
+                <div class="fadein col-sm-12 d-flex mt-5">
                     <button type="button" class=" btn btn-lg bg-green text-white montserrat m-auto letter-space1"
                             style="font-size: 15px" data-toggle="modal" data-target="#apartamentos">CIDADES</button>
                 </div>
@@ -58,21 +58,21 @@
         </div>
     </div>
 
-    <div class="bg-gray pb-4 fadein" style="width: 100vw;">
+    <div class="bg-gray pb-4" style="width: 100vw;">
         <div class="container bg-gray">
             <div class="row about-us-subcontainer">
                 <div class="col-sm-12 mt-5">
-                    <span class="bodoni text-white letter-space1 w-100 " style="font-size: 30px">Quem Somos</span>
-                    <div class="w-100 mt-4">
+                    <span class="fadein bodoni text-white letter-space1 w-100 " style="font-size: 30px">Quem Somos</span>
+                    <div class="fadein w-100 mt-4">
                         <div class="d-inline-block" style="height: 5px; width: 75px; border-top: 1px solid white"></div>
                         <span class="text-white text-uppercase montserrat letter-space1 ml-3" style="font-size: 14px; line-height: 20px">Segment Combine</span>
                     </div>
                     <div class="w-100 mt-5 montserrat text-white fw-200 text-type3">
-                        <p >A Segment Combine é uma sociedade de compra e venda de imóveis bem como aluguer de apartamentos.
+                        <p class="fadein">A Segment Combine é uma sociedade de compra e venda de imóveis bem como aluguer de apartamentos.
                             Acreditamos na reabilitação e reconstrução de imóveis com o intuito de os tornar em imóveis de luxo
                             para que os possa desfrutar da melhor maneira.
                         </p><br>
-                        <p>Atualmente a Segment Combine encontra-se presente em Lisboa, Porto, Viseu e Algarve. As perspetivas
+                        <p class="fadein">Atualmente a Segment Combine encontra-se presente em Lisboa, Porto, Viseu e Algarve. As perspetivas
                             são de continuar o nosso crescimento e trazer a nossa marca o mais perto de si.
                         </p>
                     </div>
@@ -83,21 +83,21 @@
 
     <div class="bg-light pt-4" style="width: 100vw;">
         <div class="container" style="padding-bottom: 100px">
-            <div class="row fadein">
+            <div class="row">
                 <div class="col-sm-12 mt-5">
-                    <span class="bodoni text-green letter-space1 w-100" style="font-size: 30px">Parcerias</span>
-                    <div class="w-100 mt-4">
+                    <span class="fadein bodoni text-green letter-space1 w-100" style="font-size: 30px">Parcerias</span>
+                    <div class="fadein w-100 mt-4">
                         <div class="d-inline-block" style="height: 5px; width: 75px; border-top: 1px solid rgb(3,164,156)"></div>
                         <span class="text-green text-uppercase montserrat letter-space1 ml-3" style="font-size: 14px; line-height: 20px">Segment Combine</span>
                     </div>
                     <div class="row" style="margin-top: 15vh">
-                        <a href="https://www.edp.com/pt-pt" class="col-lg-4 col-md-6 col-sm-12 d-flex">
+                        <a href="https://www.edp.com/pt-pt" class="fadein col-lg-4 col-md-6 col-sm-12 d-flex">
                             <img class="partner-img" src="{{ asset('img/partners/edp.png') }}" alt="" style="height: 150px; margin: auto">
                         </a>
-                        <a href="https://taxify.eu/" class="col-lg-4 col-md-6 col-sm-12 d-flex">
+                        <a href="https://taxify.eu/" class="fadein col-lg-4 col-md-6 col-sm-12 d-flex">
                             <img class="partner-img" src="{{ asset('img/partners/taxify.png') }}" alt="" style="height: 150px; margin: auto">
                         </a>
-                        <a href="https://www.ecooltra.com/pt/" class="col-lg-4 col-md-6 col-sm-12 d-flex">
+                        <a href="https://www.ecooltra.com/pt/" class="fadein col-lg-4 col-md-6 col-sm-12 d-flex">
                             <img class="partner-img" src="{{ asset('img/partners/ecooltra.png') }}" alt="" style="height: 150px; margin: auto">
                         </a>
                     </div>

@@ -1,28 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Apartamentos{% endblock %}
+{% block title %}{{ city ~ ' - ' ~ typeName}}{% endblock %}
 
 {% block additionalStylesheets %}
     <link rel="stylesheet" href="{{ asset('css/search.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="fadein side-info d-flex">
-        <button type="button" data-toggle="modal" data-target="{{ "#" ~ type }}"
-                class="montserrat letter-space1">{{ "Alterar cidade" | upper }}</button>
-        <a href="{{ path('houseSearch',{'slug':city, 'type': typeSearch, 'cities':cities}) }}" class="montserrat letter-space1">{{ "Descobrir " | upper ~ typeNameSearch | upper }}</a>
-    </div>
-    <div class="container fadein" style="border-right: 1px solid #eee; border-left: 1px solid #eee">
-        <h1 id="city_name" class="text-green bodoni">{{ city }}</h1>
-        <span class="montserrat letter-space1" style="width:100%; display: block; color: #999; padding-bottom: 25vh">Deslize para ver as casas</span>
-        {% set myValue = 1 %}
-        {% for house in houses %}
-            {{ include('search/house_widget.html.twig', {'house':house}) }}
-            {% set myValue = myValue + 1 %}
-        {% endfor %}
+    <div class="container" style="">
+        <div class="row" style="border-right: 1px solid #eee; border-left: 1px solid #eee;">
+            <div class="w-100 position-relative d-flex flex-column" style="height: calc(100vh - 120px)">
+                <div class="d-flex w-100 fadein row" style="flex: 1; margin-right: 0!important;margin-left: 0!important;">
+                    <div class="col-md-6 col-sm-12 d-flex container-button">
+                        <button type="button" data-toggle="modal" data-target="{{ "#" ~ type }}"
+                        class="montserrat letter-space1">{{ "Alterar cidade" | upper }}</button>
+                    </div>
+                    <div class="col-md-6 col-sm-12 d-flex">
+                        <a href="{{ path('houseSearch',{'slug':city, 'type': typeSearch, 'cities':cities}) }}" class="montserrat letter-space1 change-type">
+                            {{ "Descobrir " | upper ~ typeNameSearch | upper }}
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex" id="city_name_container" style="flex: 2; margin-left: 60px">
+                    <h1 id="city_name" class="fadein text-green bodoni" style="margin: auto">{{ city }}</h1>
+                </div>
+                <div class="d-flex flex-column" style="flex: 1;">
+                    <div class="d-flex fadein" style="flex: 1">
+                        <span class="montserrat" style="color: #bbb; margin: auto">Deslize para ver as casas</span>
+                    </div>
+                    <div class="d-flex fadein" style="flex: 1">
+                        <i class="fas fa-chevron-down" style="margin: 0 auto; color: #bbb; font-size: 25px"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 container-house-widget">
+                {% set myValue = 1 %}
+                {% for house in houses %}
+                {{ include('search/house_widget.html.twig', {'house':house}) }}
+                {% set myValue = myValue + 1 %}
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 
     {% block city_widget %}
         {{ include('index/city_widget.html.twig', {'cities':cities}) }}
     {% endblock %}
+
+    {{ include('index/contact_widget.html.twig') }}
+
 {% endblock %}

@@ -2,7 +2,10 @@
     font-size: 80px;
     text-transform: uppercase;
     letter-spacing: 60px;
-    padding: 20vh 0 0 0;
+    display: block;
+    width: calc(100% - 60px);
+    margin-left: 60px;
+    text-align: center;
 }
 
 .house-name{
@@ -25,45 +28,56 @@
 .container-search::after{
     content: "";
     width: 30%;
-    margin: auto;
+    margin: 40px auto 0 auto;
     height: 1px;
     background: #eee;
-}
-
-.side-info{
-    position: fixed;
-    height: 10vw;
-    width: 70vh;
-    top: 40vh;
-    left: -10vw;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}
-
-.side-info a{
-    flex: 1;
-    text-align: center;
-    line-height: 10vw;
-    font-size: 12px;
-    color: #bbb!important;
-    cursor: pointer;
-    text-decoration: none;
 }
 
 button{
     background: none;
     border: none;
-    font-size: 12px;
+    font-size: 14px;
     color: #bbb!important;
     cursor: pointer;
+    text-align: right;
+    width: 100%;
+    margin: auto;
+    padding: 0 35px;
+    border-right: 1px solid #eee;
+    line-height: 40px;
 }
+
+.change-type{
+    font-size: 14px;
+    color: #bbb!important;
+    cursor: pointer;
+    text-decoration: none!important;
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding: 0 20px;
+    line-height: 40px;
+}
+
 
 button:focus{
     border: none;
     outline-color: transparent;
+}
+
+.container-button{
+    padding-right: 0;
+    padding-left: 30px;
+}
+
+.container-house-widget{
+    padding-top: 100px;
+}
+
+.container-search{
+    margin-right: 0!important;
+    margin-left: 0!important;
 }
 
 .house-explore:hover{
@@ -71,4 +85,88 @@ button:focus{
     transition: 200ms;
     background: rgb(3,164,156);
     color: white
+}
+
+.house-image{
+    transition: 600ms;
+}
+
+.house-image:hover{
+    transform: scale(1.2);
+    transition: 2s;
+}
+
+@media screen and (max-width: 1199px){
+    #city_name{
+        letter-spacing: 30px;
+        /*font-size: 30px;*/
+    }
+}
+
+@media screen and (max-width: 991px){
+    #city_name{
+        letter-spacing: 20px;
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .letter-space-sm1 {
+        letter-spacing: normal;
+    }
+
+    button {
+        /*letter-spacing: ;*/
+        font-size: 12px;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 0 20px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .change-type {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    #city_name{
+        font-size: 40px;
+    }
+
+    .container-button{
+        padding: 0 20%;
+    }
+
+    .search-description{
+        margin-bottom: 20px;
+        justify-content: flex-start;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 575px){
+    #city_name{
+        letter-spacing: 8px;
+        font-size: 20px;
+    }
+
+    #city_name_container{
+        border: 1px solid rgb(3,164,156);
+        margin-right: 60px;
+    }
+
+    #city_name{
+        /*margin-left: 15px!important;*/
+    }
+
+    .container-house-widget{
+        padding-top: 30px;
+    }
+
+    .search-description{
+        text-align: center;
+    }
+
 }

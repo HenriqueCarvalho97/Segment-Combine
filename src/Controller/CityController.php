@@ -21,11 +21,13 @@ class CityController extends AbstractController
                 $rent = 1;
                 $typeNameSearch = "Imóveis";
                 $typeSearch = "imoveis";
+                $typeName = "Apartamentos";
                 break;
             case "imoveis":
                 $rent = 0;
                 $typeNameSearch = "Apartamentos";
                 $typeSearch = "apartamentos";
+                $typeName = "Imóveis";
                 break;
             default:
                 $rent = 1;
@@ -34,7 +36,7 @@ class CityController extends AbstractController
 
         return $this->render('search/index.html.twig', array('houses' => $houses, "city" => $slug,
             "typeNameSearch" => $typeNameSearch, "typeSearch" => $typeSearch, "cities" => $this->getCities(),
-            "type" => $type));
+            "type" => $type, "typeName" => $typeName));
     }
 
     /**

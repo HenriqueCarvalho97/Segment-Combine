@@ -1,6 +1,6 @@
 function openNav(){
     $(".my-navbar").css("transition","500ms");
-    $(".my-navbar").css("margin-top", "-120px");
+    $(".my-navbar").css("margin-top", "0px");
     $("body").css("overflow","hidden");
     demo();
 }

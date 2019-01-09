@@ -7,82 +7,86 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
-        <a class="montserrat fadein text-green letter-space1 pt-5 d-block go-back" href="javascript:history.back()">
-            {{ "Regressar" | upper }}
-        </a>
-        <span class="p-5 montserrat text-gray letter-space2 d-block fadein" style="font-size: 10px; text-align: center; width: 100%">{{ type|upper }}</span>
-        <span class="bodoni text-green fadein d-block" style="font-size: 60px; text-align: center; width: 100%">{{ house.name}}</span>
-        <div class="row pt-5 fadein" style="width: 50%; margin-left: 25%">
-            <div class="col-sm-6 d-flex flex-column" style="border-right: 1px solid rgb(3,164,156)">
-                <span class="text-gray montserrat d-block letter-space1" style="text-align: center; font-size: 12px">{{ "Ano"|upper }}</span>
-                <span class="text-green p-3 bodoni d-block letter-space1" style="text-align: center; font-size: 22px">{{ house.remodelationYear|date('Y')}}</span>
-            </div>
-            <div class="col-sm-6">
-                <span class="text-gray montserrat d-block letter-space1" style="text-align: center; font-size: 12px">{{ "Partilhar"|upper }}</span>
-                <div class="row" style="font-size: 22px; width: 50%; margin-left: 25%; text-align: center; padding: 1rem 0">
-                    <div class="col-sm-4 p-0">
-                        <i class="fab fa-facebook text-green"></i>
+    <div style="background: #eee">
+        <div style="background: #fefefe">
+            <div class="container" style=" border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+                    <a class="montserrat fadein text-green letter-space1 pt-5 d-block go-back" href="javascript:history.back()">
+                        {{ "Regressar" | upper }}
+                    </a>
+                    <span class="p-5 montserrat text-gray letter-space2 d-block fadein" style="font-size: 10px; text-align: center; width: 100%">{{ type|upper }}</span>
+                    <span class="bodoni text-green fadein d-block" style="font-size: 60px; text-align: center; width: 100%">{{ house.name}}</span>
+                    <div class="row pt-5 fadein container-year-share">
+                        <div class="col-sm-6 col-lg-4 offset-lg-2 d-flex flex-column year">
+                            <span class="text-gray montserrat d-block letter-space1" style="text-align: center; font-size: 12px">{{ "Ano"|upper }}</span>
+                            <span class="text-green p-3 bodoni d-block letter-space1" style="text-align: center; font-size: 22px">{{ house.remodelationYear|date('Y')}}</span>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <span class="text-gray montserrat d-block letter-space1" style="text-align: center; font-size: 12px">{{ "Partilhar"|upper }}</span>
+                            <div class="row container-share">
+                                <div class="col-sm-4 share-button p-0">
+                                    <i class="fab fa-facebook text-green"></i>
+                                </div>
+                                <div class="col-sm-4 share-button p-0">
+                                    <i class="fab fa-twitter-square text-green"></i>
+                                </div>
+                                <div class="col-sm-4 share-button p-0">
+                                    <i class="fab fa-pinterest-square text-green"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4 p-0">
-                        <i class="fab fa-twitter-square text-green"></i>
+                {% block carousel_widget %}
+                    {{ include('house/carousel.html.twig', {'images':images, 'house':house}) }}
+                {% endblock %}
+                <div class="container-house-description row fadein" style="padding-top: 75px">
+                    <div class="col-sm-6 col-lg-4 offset-lg-2">
+                        <span class="text-green montserrat" style="font-size: 20px">{{ house.mainDescription }}</span>
                     </div>
-                    <div class="col-sm-4 p-0">
-                        <i class="fab fa-pinterest-square text-green"></i>
+                    <div class="col-sm-6 col-lg-4">
+                        <span class="montserrat fw-300" style="color: #222;">{{ house.secondaryDescription }}</span>
+                    </div>
+                </div>
+                <div class="row container-map">
+                    <div class="house-info">
+                        <p class="info-tag montserrat text-green fadein">01</p>
+                        <p class="bodoni house-location-tag fadein">Localização</p>
+                        <p class="montserrat house-location fw-300 fadein">{{ house.street }}</p>
+                        <div class="map fadein">
+                            <iframe src="{{ house.location }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
                     </div>
                 </div>
             </div>
         </div>
-        {% block carousel_widget %}
-            {{ include('house/carousel.html.twig', {'images':images, 'house':house}) }}
-        {% endblock %}
-        <div class="row fadein" style="padding-top: 75px">
-            <div class="col-sm-4 offset-sm-2">
-                <span class="text-green montserrat" style="font-size: 20px">{{ house.mainDescription }}</span>
-            </div>
-            <div class="col-sm-4">
-                <span class="montserrat fw-300" style="color: #222;">{{ house.secondaryDescription }}</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="house-info">
-                <p class="info-tag montserrat text-green fadein">01</p>
-                <p class="bodoni house-location-tag fadein">Localização</p>
-                <p class="montserrat house-location fw-300 fadein">{{ house.street }}</p>
-                <div class="map fadein">
-                    <iframe src="{{ house.location }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                </div>
-            </div>
-        </div>
-    </div>
-    <div id="container-helper">
-        <div class="container" style="border-left: 1px solid white; border-right: 1px solid white">
-            <div class="row" style="margin: 0; width: 100%">
-                <div class="house-info">
-                    <p class="info-tag montserrat text-green fadein">02</p>
-                    <p class="bodoni house-location-tag fadein" style="border-bottom: 1px solid white;">Amenidades</p>
-                    <div class="container mt-5">
-                        <div class="row fadein">
-                            <div class="col-sm-4 offset-sm-2">
-                                <i class="fas fa-calendar-alt text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
-                                <p class="montserrat letter-space1">Contrução do Prédio</p>
-                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.constructionYear | date("Y")}}</p>
+        <div id="container-helper">
+            <div class="container" style="border-left: 1px solid white; border-right: 1px solid white">
+                <div class="row" style="margin: 0; width: 100%">
+                    <div class="house-info">
+                        <p class="info-tag montserrat text-green fadein">02</p>
+                        <p class="bodoni house-location-tag fadein" style="border-bottom: 1px solid white;">Amenidades</p>
+                        <div class="container mt-5">
+                            <div class="row fadein">
+                                <div class="col-sm-4 offset-sm-2">
+                                    <i class="fas fa-calendar-alt text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                    <p class="montserrat letter-space1">Contrução do Prédio</p>
+                                    <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.constructionYear | date("Y")}}</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <i class="fas fa-square text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                    <p class="montserrat letter-space1">Área Bruta</p>
+                                    <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.grossarea ~ 'm'}}<sup>2</sup></p>
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <i class="fas fa-square text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
-                                <p class="montserrat letter-space1">Área Bruta</p>
-                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.grossarea ~ 'm'}}<sup>2</sup></p>
-                            </div>
-                        </div>
-                        <div class="row fadein">
-                            <div class="col-sm-4 offset-sm-2">
-                                <i class="fas fa-crop text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
-                                <p class="montserrat letter-space1">Área Útil</p>
-                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.netarea ~ 'm'}}<sup>2</sup></p>
-                            </div>
-                            <div class="col-sm-4 d-flex flex-column">
-                                <i class="fas fa-bed text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
-                                <p class="montserrat letter-space1">Assoalhadas</p>
-                                <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.rooms}}</p>
+                            <div class="row fadein">
+                                <div class="col-sm-4 offset-sm-2">
+                                    <i class="fas fa-crop text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                    <p class="montserrat letter-space1">Área Útil</p>
+                                    <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.netarea ~ 'm'}}<sup>2</sup></p>
+                                </div>
+                                <div class="col-sm-4 d-flex flex-column">
+                                    <i class="fas fa-bed text-green" style="text-align: center; width: 100%; margin: 20px 0; font-size: 50px"></i>
+                                    <p class="montserrat letter-space1">Assoalhadas</p>
+                                    <p class="montserrat text-green fw-300 letter-space1" style="font-size: 25px">{{ house.rooms}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,6 +95,5 @@
         </div>
         {{ include('index/contact_widget.html.twig') }}
     </div>
-
 
 {% endblock %}

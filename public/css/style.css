@@ -44,14 +44,13 @@ body{
     font-weight: 200;
 }
 
-.letter-space1{
+.letter-space1, .letter-space-sm1{
     letter-spacing: 0.2em;
 }
 
 .letter-space2{
     letter-spacing: 0.4em;
 }
-
 
 .city-rows:hover{
     background: #fbfbfb;
@@ -68,4 +67,10 @@ body{
 
 .fadein{
     opacity: 0;
+}
+
+@media screen and (max-width: 575px){
+    .letter-space-sm1{
+        letter-spacing: normal;
+    }
 }
